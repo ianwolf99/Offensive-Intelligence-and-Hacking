@@ -1,5 +1,3 @@
-Microsoft Windows [Version 10.0.18362.720]
-(c) 2019 Microsoft Corporation. All rights reserved.
 
 C:\Users\iandu\Desktop\offensive hacking\undetectable_netcat>dir
  Volume in drive C has no label.
