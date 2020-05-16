@@ -80,12 +80,12 @@ if __name__=='__main__':
     parser.add_argument('--nosslscan', default=False, help="Pass --nosslscan True to NOT run sslscan. It will run by default")
 
     args = parser.parse_args()
-    ip_address = args.target
-    port = args.port
     #print args
 
-    BASE = "/root/scripts/recon_enum/results/exam/ssl"
+    BASE = "/home/ianwolf/Desktop/output/ssl"
 
+    ip_address = args.target
+    port = args.port
     #make sure path is created
     mkdir_p(BASE)
 
