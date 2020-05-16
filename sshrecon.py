@@ -94,7 +94,7 @@ if __name__=='__main__':
     ip_address = args.target
     port = args.port
 
-    BASE = '/root/scripts/recon_enum/results/exam/ssh'
+    BASE = '/home/ianwolf/Desktop/output/ssh'
     mkdir_p(BASE)
 
     doSSHNmap()
