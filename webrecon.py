@@ -112,7 +112,7 @@ def doSSLRecon(ip_address, port):
 
 def doNikto(ip_address, port):
     print "INFO: Starting nikto webRecon for %s:%s" % (ip_address, port)
-    subprocess.check_output(['nikto','-host',ip_address,'-port',port,'-nolookup','-ask','auto','-output',"/root/scripts/recon_enum/results/exam/nikto/%s_%s_nikto.xml" % (ip_address,port)])
+    subprocess.check_output(['nikto','-host',ip_address,'-port',port,'-nolookup','-ask','auto','-output',"/home/ianwolf/Desktop/output/nikto/%s_%s_nikto.xml" % (ip_address,port)])
     print "INFO: Finished nikto webRecon for %s:%s" % (ip_address, port)
     return
 
@@ -142,7 +142,7 @@ def doNikto(ip_address, port):
 def doVHostScan(ip_address, port):
     #https://github.com/codingo/VHostScan
     print "INFO: Starting VHostScan webRecon for %s:%s" % (ip_address, port)
-    subprocess.check_output(['VHostScan','-v','-t',ip_address,'-p',port,'-w','/root/lists/Web/virtual_host_scanning.txt','--no-lookups','--user-agent',args.userAgent,'-oN',VHOST_OUT])
+    subprocess.check_output(['VHostScan','-v','-t',ip_address,'-p',port,'-w','/home/ianwolf/Desktop/output/Web/virtual_host_scanning.txt','--no-lookups','--user-agent',args.userAgent,'-oN',VHOST_OUT])
     print "INFO: Finished VHostScan webRecon for %s:%s" % (ip_address, port)
     return
 
@@ -198,7 +198,7 @@ if __name__=='__main__':
             ip_address = tmp[0]
             port = tmp[1]
 
-    BASE = "/root/scripts/recon_enum/results/exam/dirb/%s" % (port)
+    BASE = "/home/ianwolf/Desktop/output/dirb/%s" % (port)
     VHOST_OUT = "%s/%s_%s_vhost" % (BASE, ip_address, port)
 
     #make sure path is created
